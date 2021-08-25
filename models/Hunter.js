@@ -1,9 +1,9 @@
-const Traveler  = require("./models/Traveler");
-class Hunter extends Travel{
+const Traveler  = require("./Traveler");
+class Hunter extends Traveler{
     constructor(name){
         super(name);
-        this.food = 2
-        this.isHealthy = true
+        this._food = 2
+        this._isHealthy = true
     }
 
     hunt(){
@@ -11,7 +11,8 @@ class Hunter extends Travel{
     }
 
     eat(){
-        if (food === 1){
+        
+        if (this.food === 1){
             this.food = 0
         }
         else if (this.food > 1) {
@@ -20,6 +21,7 @@ class Hunter extends Travel{
         else{
             this.isHealthy = false;
         }
+        console.log(this.isHealthy)
     }
 
     giveFood(traveler,numOfFoodUnits){
@@ -31,4 +33,24 @@ class Hunter extends Travel{
             
         }
     }
+    get food(){
+        return this._food
+    }
+    set food(value){
+        this._food = value
+    }
+    get name(){
+        return this._name
+    }
+    set name(value){
+        this._name = value
+    }
+    get isHealthy(){
+        return this._isHealthy
+    }
+    set isHealthy(value){
+        this._isHealthy = value
+    }
 }
+
+module.exports = Hunter
