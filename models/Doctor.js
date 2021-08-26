@@ -1,8 +1,9 @@
-class Traveler{
-    constructor(name, isHealthy = true, food = 1){
-        this._name = name;
-        this._food = Number(food);
-        this._isHealthy = isHealthy === 'true';
+const Traveler  = require("./Traveler");
+class Doctor extends Traveler{
+    constructor(name){
+        super(name)
+        this._food = 1
+        this.isHealthy = true
     }
 
     hunt(){
@@ -17,6 +18,11 @@ class Traveler{
             this.isHealthy = false;
         }
     }
+
+    heal(traveler){
+        traveler.isHealthy = true
+    }
+
     get food(){
         return this._food
     }
@@ -36,5 +42,4 @@ class Traveler{
         this._isHealthy = value
     }
 }
-
-module.exports = Traveler;
+module.exports = Doctor

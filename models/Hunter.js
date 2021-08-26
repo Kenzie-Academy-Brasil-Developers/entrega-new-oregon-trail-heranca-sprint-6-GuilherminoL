@@ -21,7 +21,6 @@ class Hunter extends Traveler{
         else{
             this.isHealthy = false;
         }
-        console.log(this.isHealthy)
     }
 
     giveFood(traveler,numOfFoodUnits){
